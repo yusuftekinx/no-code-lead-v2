@@ -1,9 +1,23 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import {
+  configureStore,
+  ThunkAction,
+  Action,
+} from "@reduxjs/toolkit";
+import AuthSlice from "../features/Auth/AuthSlice";
+import AppSlice from "../features/Apps/AppSlice";
+import { listenerMiddleware } from "./listenerMiddleware";
+
+
+import '../middlewares/AppMiddlewares'
+
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    auth: AuthSlice,
+    apps: AppSlice,
+  },
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware().prepend(listenerMiddleware.middleware);
   },
 });
 
