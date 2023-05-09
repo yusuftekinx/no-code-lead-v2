@@ -90,9 +90,6 @@ const EditPages: React.FunctionComponent<IEditPagesProps> = ({ pages }) => {
           <Button type="primary" onClick={addPage}>
             Sayfa Ekle
           </Button>
-          <Button onClick={() => setOpenCalculateDrawer(true)} type="dashed">
-            Hesaplama Ayarları
-          </Button>
         </div>
       </div>
       <div className="flex justify-center items-center gap-x-3 absolute bottom-1 right-1">
